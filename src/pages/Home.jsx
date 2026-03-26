@@ -1,6 +1,12 @@
 import { Link } from "react-router-dom";
+import { projects } from "../data/projects";
+import ProjectCard from "../components/ui/ProjectCard";
+import SectionIntro from "../components/ui/SectionIntro";
 
 function Home() {
+    const featuredProject = projects.find((project) => project.featured);
+    const highlightedProjects = projects.filter((project) => !project.featured);
+
     return (
         <>
             <section className="hero container section">
@@ -23,51 +29,35 @@ function Home() {
                 </div>
             </section>
 
-            <section className="container section">
-                <div className="section-heading">
-                    <p className="eyebrow">Featured project</p>
-                    <h2>Angel Portfolio Game</h2>
-                </div>
+            {featuredProject ? (
+                <section className="container section">
+                    <SectionIntro
+                        eyebrow="Featured project"
+                        title={featuredProject.title}
+                        description="A project at the intersection of portfolio design, immersion, and interactive storytelling."
+                    />
 
-                <article className="feature-card">
-                    <p>
-                        An experimental portfolio presented as an interactive game
-                        experience inspired by my academic journey, projects, and
-                        progression.
-                    </p>
-                    <p className="status-text">Status: In development</p>
-                    <Link to="/projects/angel-portfolio-game" className="text-link">
-                        Open project page
-                    </Link>
-                </article>
-            </section>
+                    <article className="feature-card">
+                        <p>{featuredProject.shortDescription}</p>
+                        <p className="status-text">Status: {featuredProject.status}</p>
+                        <Link to={`/projects/${featuredProject.slug}`} className="text-link">
+                            Open project page
+                        </Link>
+                    </article>
+                </section>
+            ) : null}
 
             <section className="container section">
-                <div className="section-heading">
-                    <p className="eyebrow">Selected work</p>
-                    <h2>Projects</h2>
-                </div>
+                <SectionIntro
+                    eyebrow="Selected work"
+                    title="Projects"
+                    description="A selection of technical and research-oriented projects across AI, distributed systems, and formal reasoning."
+                />
 
                 <div className="cards-grid">
-                    <article className="card">
-                        <h3>Apache Ozone HA POC</h3>
-                        <p>Distributed storage cluster proof of concept.</p>
-                    </article>
-
-                    <article className="card">
-                        <h3>Fire Detection Classification</h3>
-                        <p>Deep learning project for fire image classification.</p>
-                    </article>
-
-                    <article className="card">
-                        <h3>DNN Compression & Explainability</h3>
-                        <p>Interactive framework for neural network analysis.</p>
-                    </article>
-
-                    <article className="card">
-                        <h3>XPath Query Containment</h3>
-                        <p>Master’s thesis focused on formal reasoning around XPath queries.</p>
-                    </article>
+                    {highlightedProjects.map((project) => (
+                        <ProjectCard key={project.slug} project={project} />
+                    ))}
                 </div>
             </section>
         </>

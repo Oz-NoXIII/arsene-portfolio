@@ -15,6 +15,24 @@ function About() {
                 atmosphere and meaning. I want this portfolio to reflect both the engineer
                 and the imaginative side behind my projects.
             </p>
+
+            <div className="about-columns">
+                <div className="card">
+                    <h3>What drives me</h3>
+                    <p>
+                        Curiosity, experimentation, and the desire to create technical work
+                        with identity rather than purely functional output.
+                    </p>
+                </div>
+
+                <div className="card">
+                    <h3>What I enjoy</h3>
+                    <p>
+                        Software, AI, music, reading, atmosphere-rich worlds, and projects
+                        that connect structure with imagination.
+                    </p>
+                </div>
+            </div>
         </section>
     );
 }
