@@ -1,6 +1,8 @@
 import { Outlet } from "react-router-dom";
 import Navbar from "./Navbar";
 import BackgroundLayers from "../background/BackgroundLayers";
+import AmbientOverlay from "../background/AmbientOverlay";
+import CursorGlow from "../background/CursorGlow";
 import MusicPlayer from "../audio/MusicPlayer";
 import PageTransition from "./PageTransition";
 
@@ -8,6 +10,8 @@ function SiteLayout() {
     return (
         <div className="app-shell">
             <BackgroundLayers />
+            <AmbientOverlay />
+            <CursorGlow />
 
             <header className="site-header">
                 <Navbar />

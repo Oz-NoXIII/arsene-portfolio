@@ -113,3 +113,42 @@
     gap: 1.2rem;
     margin-top: 2rem;
 }
+
+.quick-links-section {
+    margin-top: -1rem;
+}
+
+.quick-links-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+}
+
+.quick-link-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    padding: 1rem 1.1rem;
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    background: rgba(18, 22, 34, 0.55);
+    backdrop-filter: blur(12px);
+    transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+}
+
+.quick-link-card:hover {
+    transform: translateY(-2px);
+    background: rgba(22, 27, 42, 0.72);
+    border-color: rgba(255, 255, 255, 0.18);
+}
+
+.quick-link-label {
+    color: var(--text);
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 600;
+}
+
+.quick-link-description {
+    color: var(--muted);
+    font-size: 0.94rem;
+}

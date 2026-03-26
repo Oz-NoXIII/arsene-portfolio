@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { projects } from "../data/projects";
+import { siteContent } from "../data/siteContent";
 import ProjectCard from "../components/ui/ProjectCard";
 import SectionIntro from "../components/ui/SectionIntro";
 
@@ -41,6 +42,17 @@ function Home() {
                             ideas, music, and imagination coexist.
                         </p>
                     </div>
+                </div>
+            </section>
+
+            <section className="container quick-links-section">
+                <div className="quick-links-grid">
+                    {siteContent.quickLinks.map((item) => (
+                        <Link key={item.to} to={item.to} className="quick-link-card">
+                            <span className="quick-link-label">{item.label}</span>
+                            <span className="quick-link-description">{item.description}</span>
+                        </Link>
+                    ))}
                 </div>
             </section>
 

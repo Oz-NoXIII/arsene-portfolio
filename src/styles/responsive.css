@@ -53,3 +53,13 @@
         grid-template-columns: 1fr;
     }
 }
+
+@media (max-width: 760px) {
+    .quick-links-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .cursor-glow {
+        display: none;
+    }
+}

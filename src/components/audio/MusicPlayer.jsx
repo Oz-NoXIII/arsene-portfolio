@@ -1,4 +1,5 @@
 import { useAudioPlayer } from "./AudioProvider";
+import { siteContent } from "../../data/siteContent";
 
 function MusicPlayer() {
     const { audioRef, isPlaying, toggleAudio } = useAudioPlayer();
@@ -22,8 +23,10 @@ function MusicPlayer() {
         </span>
 
                 <span className="music-player-content">
-          <span className="music-player-label">Atmosphere</span>
-          <span className="music-player-state">{isPlaying ? "On" : "Off"}</span>
+          <span className="music-player-label">{siteContent.music.title}</span>
+          <span className="music-player-meta">
+            {siteContent.music.subtitle} · {isPlaying ? "On" : "Off"}
+          </span>
         </span>
             </button>
         </>

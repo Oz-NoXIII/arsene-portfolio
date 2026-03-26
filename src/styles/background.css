@@ -121,3 +121,79 @@
 .background-root.theme-contact .bg-grid {
     opacity: 0.08;
 }
+
+.ambient-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.ambient-cloud,
+.ambient-ring,
+.ambient-particles {
+    position: absolute;
+}
+
+.ambient-cloud {
+    border-radius: 999px;
+    filter: blur(42px);
+    opacity: 0.16;
+}
+
+.ambient-cloud-one {
+    width: 380px;
+    height: 180px;
+    left: -60px;
+    top: 22%;
+    background: rgba(185, 196, 255, 0.18);
+}
+
+.ambient-cloud-two {
+    width: 320px;
+    height: 160px;
+    right: 2%;
+    top: 58%;
+    background: rgba(220, 228, 255, 0.1);
+}
+
+.ambient-ring {
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 50%;
+}
+
+.ambient-ring-one {
+    width: 480px;
+    height: 480px;
+    right: -120px;
+    top: 10%;
+}
+
+.ambient-ring-two {
+    width: 320px;
+    height: 320px;
+    left: -80px;
+    bottom: 8%;
+}
+
+.ambient-particles {
+    inset: 0;
+    background-image:
+            radial-gradient(circle at 12% 18%, rgba(255,255,255,0.18) 0 1px, transparent 1.6px),
+            radial-gradient(circle at 78% 26%, rgba(255,255,255,0.12) 0 1px, transparent 1.6px),
+            radial-gradient(circle at 66% 72%, rgba(255,255,255,0.14) 0 1px, transparent 1.6px),
+            radial-gradient(circle at 26% 74%, rgba(255,255,255,0.1) 0 1px, transparent 1.6px);
+    opacity: 0.25;
+}
+
+.cursor-glow {
+    position: fixed;
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
+    background: radial-gradient(circle, rgba(180, 190, 255, 0.08) 0%, rgba(180, 190, 255, 0.03) 35%, transparent 70%);
+    filter: blur(20px);
+}
