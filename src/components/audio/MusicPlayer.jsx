@@ -11,12 +11,20 @@ function MusicPlayer() {
 
             <button
                 type="button"
-                className="music-player"
+                className={`music-player ${isPlaying ? "playing" : ""}`}
                 onClick={toggleAudio}
                 aria-label={isPlaying ? "Pause music" : "Play music"}
             >
-                <span className="music-player-label">Atmosphere</span>
-                <span className="music-player-state">{isPlaying ? "On" : "Off"}</span>
+        <span className="music-player-visual">
+          <span />
+          <span />
+          <span />
+        </span>
+
+                <span className="music-player-content">
+          <span className="music-player-label">Atmosphere</span>
+          <span className="music-player-state">{isPlaying ? "On" : "Off"}</span>
+        </span>
             </button>
         </>
     );

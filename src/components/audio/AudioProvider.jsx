@@ -1,29 +1,46 @@
-import { createContext, useContext, useMemo, useRef, useState } from "react";
+import { createContext, useContext, useEffect, useMemo, useRef, useState } from "react";
 
 const AudioContextState = createContext(null);
+const STORAGE_KEY = "portfolio-audio-enabled";
 
 export function AudioProvider({ children }) {
     const audioRef = useRef(null);
     const [isPlaying, setIsPlaying] = useState(false);
+    const [hasMounted, setHasMounted] = useState(false);
 
-    function toggleAudio() {
-        if (!audioRef.current) {
+    useEffect(() => {
+        const savedPreference = window.localStorage.getItem(STORAGE_KEY);
+
+        if (savedPreference === "true") {
+            setIsPlaying(true);
+        }
+
+        setHasMounted(true);
+    }, []);
+
+    useEffect(() => {
+        if (!hasMounted || !audioRef.current) {
             return;
         }
 
         if (isPlaying) {
-            audioRef.current.pause();
-            setIsPlaying(false);
-        } else {
             audioRef.current
                 .play()
                 .then(() => {
-                    setIsPlaying(true);
+                    window.localStorage.setItem(STORAGE_KEY, "true");
                 })
                 .catch((error) => {
                     console.error("Audio playback failed:", error);
+                    setIsPlaying(false);
                 });
+        } else {
+            audioRef.current.pause();
+            window.localStorage.setItem(STORAGE_KEY, "false");
         }
+    }, [hasMounted, isPlaying]);
+
+    function toggleAudio() {
+        setIsPlaying((prev) => !prev);
     }
 
     const value = useMemo(

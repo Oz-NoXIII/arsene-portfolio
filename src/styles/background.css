@@ -1,0 +1,123 @@
+.background-root {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.bg-gradient,
+.bg-stars,
+.bg-clouds,
+.bg-grid,
+.bg-glow,
+.bg-paper,
+.bg-waveform {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.bg-gradient {
+    background:
+            radial-gradient(circle at 15% 20%, rgba(130, 150, 255, 0.14), transparent 28%),
+            radial-gradient(circle at 80% 18%, rgba(255, 255, 255, 0.06), transparent 18%),
+            linear-gradient(180deg, #0d111c 0%, #090b12 100%);
+}
+
+.bg-stars {
+    background-image:
+            radial-gradient(circle at 20% 30%, rgba(255,255,255,0.75) 0 1px, transparent 1.6px),
+            radial-gradient(circle at 72% 22%, rgba(255,255,255,0.55) 0 1px, transparent 1.6px),
+            radial-gradient(circle at 46% 68%, rgba(255,255,255,0.45) 0 1px, transparent 1.6px),
+            radial-gradient(circle at 84% 56%, rgba(255,255,255,0.35) 0 1px, transparent 1.6px),
+            radial-gradient(circle at 60% 40%, rgba(255,255,255,0.25) 0 1px, transparent 1.6px);
+    opacity: 0.45;
+}
+
+.bg-clouds {
+    background:
+            radial-gradient(ellipse at 18% 76%, rgba(173, 184, 255, 0.08), transparent 28%),
+            radial-gradient(ellipse at 82% 70%, rgba(210, 220, 255, 0.06), transparent 24%),
+            radial-gradient(ellipse at 50% 100%, rgba(130, 140, 220, 0.05), transparent 24%);
+    filter: blur(30px);
+}
+
+.bg-grid {
+    background-image:
+            linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+    background-size: 84px 84px;
+    opacity: 0.12;
+    mask-image: linear-gradient(to bottom, transparent 0%, black 20%, black 80%, transparent 100%);
+}
+
+.bg-glow-one {
+    background: radial-gradient(circle at 12% 12%, rgba(180, 190, 255, 0.12), transparent 26%);
+}
+
+.bg-glow-two {
+    background: radial-gradient(circle at 88% 18%, rgba(255, 245, 230, 0.05), transparent 20%);
+}
+
+.bg-paper {
+    opacity: 0;
+    background-image:
+            linear-gradient(rgba(255,255,255,0.015), rgba(255,255,255,0.015)),
+            repeating-linear-gradient(
+                    0deg,
+                    transparent 0px,
+                    transparent 32px,
+                    rgba(255,255,255,0.012) 33px
+            );
+    transition: opacity 0.5s ease;
+}
+
+.bg-waveform {
+    opacity: 0;
+    background:
+            radial-gradient(circle at 50% 85%, rgba(170, 180, 255, 0.05), transparent 22%),
+            linear-gradient(
+                    90deg,
+                    transparent 0%,
+                    rgba(255,255,255,0.03) 15%,
+                    transparent 30%,
+                    rgba(255,255,255,0.02) 45%,
+                    transparent 60%,
+                    rgba(255,255,255,0.03) 75%,
+                    transparent 100%
+            );
+    mask-image: linear-gradient(to bottom, transparent 15%, black 40%, black 90%, transparent 100%);
+    transition: opacity 0.5s ease;
+}
+
+.background-root.theme-about .bg-paper,
+.background-root.theme-projects .bg-paper,
+.background-root.theme-project-detail .bg-paper {
+    opacity: 0.35;
+}
+
+.background-root.theme-about .bg-waveform {
+    opacity: 0.3;
+}
+
+.background-root.theme-game .bg-stars {
+    opacity: 0.62;
+}
+
+.background-root.theme-game .bg-clouds {
+    filter: blur(34px);
+    opacity: 1;
+}
+
+.background-root.theme-game .bg-glow-one {
+    background: radial-gradient(circle at 18% 18%, rgba(180, 190, 255, 0.18), transparent 28%);
+}
+
+.background-root.theme-projects .bg-grid,
+.background-root.theme-project-detail .bg-grid {
+    opacity: 0.18;
+}
+
+.background-root.theme-contact .bg-grid {
+    opacity: 0.08;
+}

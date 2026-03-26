@@ -2,6 +2,7 @@ import { Outlet } from "react-router-dom";
 import Navbar from "./Navbar";
 import BackgroundLayers from "../background/BackgroundLayers";
 import MusicPlayer from "../audio/MusicPlayer";
+import PageTransition from "./PageTransition";
 
 function SiteLayout() {
     return (
@@ -15,7 +16,9 @@ function SiteLayout() {
             <MusicPlayer />
 
             <main className="site-main">
-                <Outlet />
+                <PageTransition>
+                    <Outlet />
+                </PageTransition>
             </main>
 
             <footer className="site-footer container">

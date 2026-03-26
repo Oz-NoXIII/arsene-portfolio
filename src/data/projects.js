@@ -2,6 +2,7 @@ export const projects = [
     {
         slug: "angel-portfolio-game",
         title: "Angel Portfolio Game",
+        image: "/images/projects/angel-portfolio-game.jpg",
         shortDescription:
             "An interactive portfolio designed as a game experience inspired by my academic journey.",
         fullDescription: [
@@ -15,6 +16,7 @@ export const projects = [
     {
         slug: "apache-ozone-ha-poc",
         title: "Apache Ozone HA POC",
+        image: "/images/projects/apache-ozone-ha-poc.jpg",
         shortDescription:
             "Distributed storage cluster proof of concept focused on configuration, validation, and presentation.",
         fullDescription: [
@@ -27,6 +29,7 @@ export const projects = [
     {
         slug: "fire-detection-classification",
         title: "Fire Detection Classification",
+        image: "/images/projects/fire-detection-classification.jpg",
         shortDescription:
             "Deep learning project for fire image classification with semantic evaluation and explainability.",
         fullDescription: [
@@ -39,6 +42,7 @@ export const projects = [
     {
         slug: "dnn-compression-explainability",
         title: "DNN Compression & Explainability",
+        image: "/images/projects/dnn-compression-explainability.jpg",
         shortDescription:
             "Interactive framework for exploring compression and explainability in deep neural networks.",
         fullDescription: [
@@ -51,6 +55,7 @@ export const projects = [
     {
         slug: "xpath-query-containment",
         title: "XPath Query Containment",
+        image: "/images/projects/xpath-query-containment.jpg",
         shortDescription:
             "Master’s thesis project focused on formal reasoning and implementation around XPath query containment.",
         fullDescription: [
