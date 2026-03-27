@@ -3,8 +3,10 @@ import { projects } from "../data/projects";
 import { siteContent } from "../data/siteContent";
 import ProjectCard from "../components/ui/ProjectCard";
 import SectionIntro from "../components/ui/SectionIntro";
+import { useDelayedNavigate } from "../components/layout/useDelayedNavigate";
 
 function Home() {
+    const delayedNavigate = useDelayedNavigate();
     const featuredProject = projects.find((project) => project.featured);
     const highlightedProjects = projects.filter((project) => !project.featured);
 
@@ -22,12 +24,21 @@ function Home() {
                     </p>
 
                     <div className="hero-actions">
-                        <Link to="/projects" className="button button-primary">
+                        <button
+                            type="button"
+                            className="button button-primary"
+                            onClick={() => delayedNavigate("/portfolio")}
+                        >
                             View portfolio
-                        </Link>
-                        <Link to="/about" className="button button-secondary">
+                        </button>
+
+                        <button
+                            type="button"
+                            className="button button-secondary"
+                            onClick={() => delayedNavigate("/about")}
+                        >
                             About me
-                        </Link>
+                        </button>
                     </div>
                 </div>
 
@@ -48,10 +59,15 @@ function Home() {
             <section className="container quick-links-section">
                 <div className="quick-links-grid">
                     {siteContent.quickLinks.map((item) => (
-                        <Link key={item.to} to={item.to} className="quick-link-card">
+                        <button
+                            key={item.to}
+                            type="button"
+                            className="quick-link-card quick-link-button"
+                            onClick={() => delayedNavigate(item.to)}
+                        >
                             <span className="quick-link-label">{item.label}</span>
                             <span className="quick-link-description">{item.description}</span>
-                        </Link>
+                        </button>
                     ))}
                 </div>
             </section>

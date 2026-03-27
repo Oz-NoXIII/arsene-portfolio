@@ -136,6 +136,14 @@
     transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
 }
 
+.quick-link-button {
+    width: 100%;
+    text-align: left;
+    color: inherit;
+    font: inherit;
+    cursor: pointer;
+}
+
 .quick-link-card:hover {
     transform: translateY(-2px);
     background: rgba(22, 27, 42, 0.72);
