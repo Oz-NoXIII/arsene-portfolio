@@ -1,6 +1,6 @@
 function About() {
     return (
-        <section className="container section page-section narrow">
+        <section className="container section page-section about-page">
             <p className="eyebrow">About</p>
             <h1 className="page-title">A technical profile with creative instincts.</h1>
 
@@ -17,7 +17,7 @@ function About() {
             </p>
 
             <div className="about-columns">
-                <div className="card">
+                <div className="card about-card">
                     <h3>What drives me</h3>
                     <p>
                         Curiosity, experimentation, and the desire to create technical work
@@ -25,7 +25,7 @@ function About() {
                     </p>
                 </div>
 
-                <div className="card">
+                <div className="card about-card">
                     <h3>What I enjoy</h3>
                     <p>
                         Software, AI, music, reading, atmosphere-rich worlds, and projects
