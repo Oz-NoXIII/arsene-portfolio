@@ -3,18 +3,20 @@ import { useLocation } from "react-router-dom";
 function BackgroundLayers() {
     const location = useLocation();
 
-    let pageClass = "theme-home";
+    let pageClass = "theme-night";
 
-    if (location.pathname === "/about") {
-        pageClass = "theme-about";
+    if (location.pathname === "/portfolio") {
+        pageClass = "theme-dawn";
+    } else if (location.pathname === "/interactive-portfolio") {
+        pageClass = "theme-day";
+    } else if (location.pathname === "/about") {
+        pageClass = "theme-dusk";
     } else if (location.pathname === "/contact") {
-        pageClass = "theme-contact";
-    } else if (location.pathname === "/projects") {
-        pageClass = "theme-projects";
+        pageClass = "theme-convergence";
     } else if (location.pathname.startsWith("/projects/angel-portfolio-game")) {
-        pageClass = "theme-game";
+        pageClass = "theme-day";
     } else if (location.pathname.startsWith("/projects/")) {
-        pageClass = "theme-project-detail";
+        pageClass = "theme-dawn";
     }
 
     return (
@@ -27,6 +29,7 @@ function BackgroundLayers() {
             <div className="bg-glow bg-glow-two" />
             <div className="bg-paper" />
             <div className="bg-waveform" />
+            <div className="bg-sun-haze" />
         </div>
     );
 }

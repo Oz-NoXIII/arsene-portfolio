@@ -1,15 +1,17 @@
 import { Outlet } from "react-router-dom";
 import Navbar from "./Navbar";
-import BackgroundLayers from "../background/BackgroundLayers";
+import SkyBackground from "../background/SkyBackground";
 import AmbientOverlay from "../background/AmbientOverlay";
 import CursorGlow from "../background/CursorGlow";
 import MusicPlayer from "../audio/MusicPlayer";
 import PageTransition from "./PageTransition";
+import TransitionVeil from "../background/TransitionVeil.jsx";
 
 function SiteLayout() {
     return (
         <div className="app-shell">
-            <BackgroundLayers />
+            <SkyBackground />
+            <TransitionVeil />
             <AmbientOverlay />
             <CursorGlow />
 

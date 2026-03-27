@@ -63,3 +63,13 @@
         display: none;
     }
 }
+
+@media (max-width: 900px) {
+    .interactive-hero {
+        grid-template-columns: 1fr;
+    }
+
+    .interactive-hero-image-wrapper {
+        height: 240px;
+    }
+}

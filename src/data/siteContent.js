@@ -5,19 +5,19 @@ export const siteContent = {
     },
     quickLinks: [
         {
-            label: "Projects",
+            label: "Portfolio",
             description: "Technical and creative work",
-            to: "/projects"
+            to: "/portfolio"
+        },
+        {
+            label: "Angel Portfolio Game",
+            description: "The interactive portfolio concept",
+            to: "/interactive-portfolio"
         },
         {
             label: "About",
             description: "Profile, interests, and direction",
             to: "/about"
-        },
-        {
-            label: "Contact",
-            description: "Get in touch quickly",
-            to: "/contact"
         }
     ]
 };

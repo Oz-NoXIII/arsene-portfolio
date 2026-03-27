@@ -23,7 +23,7 @@ function Home() {
 
                     <div className="hero-actions">
                         <Link to="/projects" className="button button-primary">
-                            View projects
+                            View portfolio
                         </Link>
                         <Link to="/about" className="button button-secondary">
                             About me
@@ -96,7 +96,7 @@ function Home() {
             <section className="container section">
                 <SectionIntro
                     eyebrow="Selected work"
-                    title="Projects"
+                    title="Portfolio"
                     description="A selection of technical and research-oriented projects across AI, distributed systems, and formal reasoning."
                 />
 

@@ -1,8 +1,13 @@
 import { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
+import { useDelayedNavigate } from "./useDelayedNavigate";
+import { usePageTransition } from "./TransitionProvider";
 
 function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
+    const delayedNavigate = useDelayedNavigate();
+    const location = useLocation();
+    const { isTransitioning, targetPath } = usePageTransition();
 
     function toggleMenu() {
         setIsOpen((prev) => !prev);
@@ -12,11 +17,29 @@ function Navbar() {
         setIsOpen(false);
     }
 
+    function handleNavigate(event, path) {
+        event.preventDefault();
+        closeMenu();
+        delayedNavigate(path);
+    }
+
+    function isActive(path) {
+        if (isTransitioning && targetPath === path) {
+            return true;
+        }
+
+        return location.pathname === path;
+    }
+
     return (
         <nav className="navbar container">
-            <NavLink to="/" className="brand" onClick={closeMenu}>
+            <a
+                href="/"
+                className="brand"
+                onClick={(event) => handleNavigate(event, "/")}
+            >
                 Arsène Mujyabwami
-            </NavLink>
+            </a>
 
             <button
                 type="button"
@@ -31,18 +54,45 @@ function Navbar() {
             </button>
 
             <div className={`nav-links ${isOpen ? "open" : ""}`}>
-                <NavLink to="/" end className="nav-link" onClick={closeMenu}>
+                <a
+                    href="/"
+                    className={`nav-link ${isActive("/") ? "active" : ""}`}
+                    onClick={(event) => handleNavigate(event, "/")}
+                >
                     Home
-                </NavLink>
-                <NavLink to="/projects" className="nav-link" onClick={closeMenu}>
-                    Projects
-                </NavLink>
-                <NavLink to="/about" className="nav-link" onClick={closeMenu}>
+                </a>
+
+                <a
+                    href="/portfolio"
+                    className={`nav-link ${isActive("/portfolio") ? "active" : ""}`}
+                    onClick={(event) => handleNavigate(event, "/portfolio")}
+                >
+                    Portfolio
+                </a>
+
+                <a
+                    href="/interactive-portfolio"
+                    className={`nav-link ${isActive("/interactive-portfolio") ? "active" : ""}`}
+                    onClick={(event) => handleNavigate(event, "/interactive-portfolio")}
+                >
+                    Angel Portfolio Game
+                </a>
+
+                <a
+                    href="/about"
+                    className={`nav-link ${isActive("/about") ? "active" : ""}`}
+                    onClick={(event) => handleNavigate(event, "/about")}
+                >
                     About
-                </NavLink>
-                <NavLink to="/contact" className="nav-link" onClick={closeMenu}>
+                </a>
+
+                <a
+                    href="/contact"
+                    className={`nav-link ${isActive("/contact") ? "active" : ""}`}
+                    onClick={(event) => handleNavigate(event, "/contact")}
+                >
                     Contact
-                </NavLink>
+                </a>
             </div>
         </nav>
     );

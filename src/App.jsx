@@ -1,7 +1,8 @@
 import { Routes, Route } from "react-router-dom";
 import SiteLayout from "./components/layout/SiteLayout";
 import Home from "./pages/Home";
-import Projects from "./pages/Projects";
+import Portfolio from "./pages/Portfolio";
+import InteractivePortfolio from "./pages/InteractivePortfolio";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import ProjectDetail from "./pages/ProjectDetail";
@@ -11,7 +12,8 @@ function App() {
         <Routes>
             <Route path="/" element={<SiteLayout />}>
                 <Route index element={<Home />} />
-                <Route path="projects" element={<Projects />} />
+                <Route path="portfolio" element={<Portfolio />} />
+                <Route path="interactive-portfolio" element={<InteractivePortfolio />} />
                 <Route path="about" element={<About />} />
                 <Route path="contact" element={<Contact />} />
                 <Route path="projects/:slug" element={<ProjectDetail />} />
