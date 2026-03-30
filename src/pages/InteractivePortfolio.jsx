@@ -2,21 +2,19 @@ import { Link } from "react-router-dom";
 import { projects } from "../data/projects";
 
 function InteractivePortfolio() {
-    const gameProject = projects.find(
-        (project) => project.slug === "angel-portfolio-game"
-    );
 
+    const featuredProject = projects.find((project) => project.featured);
     return (
         <section className="container section page-section">
             <p className="eyebrow">Interactive Portfolio</p>
-            <h1 className="page-title">Angel Portfolio Game</h1>
+            <h1 className="page-title">{featuredProject.title}</h1>
 
             <div className="status-badge">In development</div>
 
             <div className="interactive-hero">
                 <div className="interactive-hero-image-wrapper">
                     <img
-                        src={gameProject?.image}
+                        src={"/images/projects/angel-portfolio-game.jpg"}
                         alt="Angel Portfolio Game"
                         className="interactive-hero-image"
                     />
@@ -41,10 +39,6 @@ function InteractivePortfolio() {
                         <span className="tag">Game</span>
                         <span className="tag">In development</span>
                     </div>
-
-                    <Link to="/projects/angel-portfolio-game" className="text-link">
-                        Read technical details
-                    </Link>
                 </div>
             </div>
         </section>

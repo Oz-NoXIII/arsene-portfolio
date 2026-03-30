@@ -75,7 +75,7 @@ function Navbar() {
                     className={`nav-link ${isActive("/interactive-portfolio") ? "active" : ""}`}
                     onClick={(event) => handleNavigate(event, "/interactive-portfolio")}
                 >
-                    Angel Portfolio Game
+                    Interactive Portfolio
                 </a>
 
                 <a

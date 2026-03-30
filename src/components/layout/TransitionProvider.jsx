@@ -11,7 +11,8 @@ export function TransitionProvider({ children }) {
             isTransitioning,
             setIsTransitioning,
             targetPath,
-            setTargetPath
+            setTargetPath,
+            isContactTransition: targetPath === "/contact"
         }),
         [isTransitioning, targetPath]
     );

@@ -5,13 +5,13 @@ import AmbientOverlay from "../background/AmbientOverlay";
 import CursorGlow from "../background/CursorGlow";
 import MusicPlayer from "../audio/MusicPlayer";
 import PageTransition from "./PageTransition";
-import TransitionVeil from "../background/TransitionVeil.jsx";
+import ContactTransition from "../background/ContactTransition";
 
 function SiteLayout() {
     return (
         <div className="app-shell">
             <SkyBackground />
-            <TransitionVeil />
+            <ContactTransition />
             <AmbientOverlay />
             <CursorGlow />
 

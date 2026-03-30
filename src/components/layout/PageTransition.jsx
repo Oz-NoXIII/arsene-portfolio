@@ -13,9 +13,11 @@ function PageTransition({ children }) {
             return;
         }
 
+        const revealDelay = location.pathname === "/contact" ? 180 : 60;
+
         const timeout = window.setTimeout(() => {
             setIsVisible(true);
-        }, 60);
+        }, 0);
 
         return () => window.clearTimeout(timeout);
     }, [isTransitioning, location.pathname]);
@@ -28,7 +30,6 @@ function PageTransition({ children }) {
         const timeout = window.setTimeout(() => {
             setIsTransitioning(false);
             setTargetPath(null);
-            setIsVisible(true);
         }, 120);
 
         return () => window.clearTimeout(timeout);

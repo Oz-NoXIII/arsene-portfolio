@@ -1,7 +1,7 @@
 export const projects = [
     {
         slug: "angel-portfolio-game",
-        title: "Angel Portfolio Game",
+        title: "Metanoia",
         image: "/images/projects/angel-portfolio-game.jpg",
         shortDescription:
             "An interactive portfolio designed as a game experience inspired by my academic journey.",

@@ -1,6 +1,7 @@
 import { useNavigate, useLocation } from "react-router-dom";
 import { usePageTransition } from "./TransitionProvider";
-import { TRANSITION_DURATION } from "../../data/transitionConfig";
+
+const TRANSITION_DURATION = 1000;
 
 export function useDelayedNavigate() {
     const navigate = useNavigate();

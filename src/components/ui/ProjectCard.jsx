@@ -1,8 +1,21 @@
-import { Link } from "react-router-dom";
+import { useDelayedNavigate } from "../layout/useDelayedNavigate";
 
 function ProjectCard({ project }) {
+    const delayedNavigate = useDelayedNavigate();
+
     return (
-        <article className="card project-card">
+        <article
+            className="card project-card project-card-clickable"
+            onClick={() => delayedNavigate(`/projects/${project.slug}`)}
+            onKeyDown={(event) => {
+                if (event.key === "Enter" || event.key === " ") {
+                    event.preventDefault();
+                    delayedNavigate(`/projects/${project.slug}`);
+                }
+            }}
+            role="button"
+            tabIndex={0}
+        >
             <div className="project-image-wrapper">
                 <img
                     src={project.image}
@@ -15,6 +28,7 @@ function ProjectCard({ project }) {
             <div className="project-card-content">
                 <div className="project-card-top">
                     <p className="project-status">{project.status}</p>
+
                     <div className="tag-list">
                         {project.tags.slice(0, 3).map((tag) => (
                             <span key={tag} className="tag">
@@ -27,9 +41,7 @@ function ProjectCard({ project }) {
                 <h3>{project.title}</h3>
                 <p>{project.shortDescription}</p>
 
-                <Link to={`/projects/${project.slug}`} className="text-link">
-                    Read more
-                </Link>
+                <span className="text-link">Read more</span>
             </div>
         </article>
     );

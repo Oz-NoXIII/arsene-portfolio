@@ -10,7 +10,7 @@ export const siteContent = {
             to: "/portfolio"
         },
         {
-            label: "Angel Portfolio Game",
+            label: "Interactive Portfolio",
             description: "The interactive portfolio concept",
             to: "/interactive-portfolio"
         },

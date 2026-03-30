@@ -7,8 +7,6 @@ import { useDelayedNavigate } from "../components/layout/useDelayedNavigate";
 
 function Home() {
     const delayedNavigate = useDelayedNavigate();
-    const featuredProject = projects.find((project) => project.featured);
-    const highlightedProjects = projects.filter((project) => !project.featured);
 
     return (
         <>
@@ -72,43 +70,6 @@ function Home() {
                 </div>
             </section>
 
-            {featuredProject ? (
-                <section className="container section">
-                    <SectionIntro
-                        eyebrow="Featured project"
-                        title={featuredProject.title}
-                        description="A project at the intersection of portfolio design, immersion, and interactive storytelling."
-                    />
-
-                    <article className="feature-card feature-card-rich">
-                        <div className="feature-card-image-wrapper">
-                            <img
-                                src={featuredProject.image}
-                                alt={featuredProject.title}
-                                className="feature-card-image"
-                            />
-                        </div>
-
-                        <div className="feature-card-content">
-                            <p>{featuredProject.shortDescription}</p>
-                            <p className="status-text">Status: {featuredProject.status}</p>
-
-                            <div className="tag-list large">
-                                {featuredProject.tags.map((tag) => (
-                                    <span key={tag} className="tag">
-                    {tag}
-                  </span>
-                                ))}
-                            </div>
-
-                            <Link to={`/projects/${featuredProject.slug}`} className="text-link">
-                                Open project page
-                            </Link>
-                        </div>
-                    </article>
-                </section>
-            ) : null}
-
             <section className="container section">
                 <SectionIntro
                     eyebrow="Selected work"
@@ -117,7 +78,7 @@ function Home() {
                 />
 
                 <div className="cards-grid">
-                    {highlightedProjects.map((project) => (
+                    {projects.map((project) => (
                         <ProjectCard key={project.slug} project={project} />
                     ))}
                 </div>
