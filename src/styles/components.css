@@ -22,8 +22,9 @@ h3 {
 }
 
 .hero-title {
-    max-width: 840px;
-    font-size: clamp(2.9rem, 6vw, 5.2rem);
+    max-width: none;
+    font-size: clamp(2rem, 4.8vw, 3.6rem);
+    line-height: 1.15;
 }
 
 .page-title {

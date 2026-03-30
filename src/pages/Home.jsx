@@ -12,8 +12,11 @@ function Home() {
         <>
             <section className="hero hero-split container section">
                 <div className="hero-copy">
-                    <p className="eyebrow">Software • AI • Interactive Worlds</p>
-                    <h1 className="hero-title">Building technical systems with imagination.</h1>
+                    <p className="eyebrow"> Software • AI • Theoretical CS </p>
+                    <h1 className="hero-title">
+                        Technical when it matters.<br />
+                        Practical when it counts.
+                    </h1>
 
                     <p className="hero-text">
                         Computer Science student exploring software development, artificial
