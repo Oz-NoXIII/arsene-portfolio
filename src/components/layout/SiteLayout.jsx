@@ -28,7 +28,7 @@ function SiteLayout() {
             </main>
 
             <footer className="site-footer container">
-                <p>© 2026 Arsène Mujyabwami</p>
+                <p>© {new Date().getFullYear()} Arsène Mujyabwami</p>
             </footer>
         </div>
     );
