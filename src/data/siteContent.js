@@ -1,17 +1,17 @@
 export const siteContent = {
     music: {
-        title: "Atmosphere",
-        subtitle: "Ambient portfolio theme"
+        title: "Chopin - Prelude, Op.28, No.4",
+        subtitle: "by Jerome Chauvel"
     },
     quickLinks: [
         {
             label: "Portfolio",
-            description: "Technical and creative work",
+            description: "Selected works",
             to: "/portfolio"
         },
         {
             label: "Interactive Portfolio",
-            description: "The interactive portfolio concept",
+            description: "Metanoia",
             to: "/interactive-portfolio"
         },
         {

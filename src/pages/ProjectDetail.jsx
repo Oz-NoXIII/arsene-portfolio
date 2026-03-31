@@ -39,6 +39,19 @@ function ProjectDetail() {
                     </p>
                 ))}
             </div>
+
+            {project.skills?.length ? (
+                <div className="project-detail-section">
+                    <h2 className="project-detail-heading">Skills</h2>
+                    <div className="project-skills project-skills-detail">
+                        {project.skills.map((skill) => (
+                            <span key={skill} className="project-skill">
+                                {skill}
+                            </span>
+                        ))}
+                    </div>
+                </div>
+            ) : null}
         </section>
     );
 }

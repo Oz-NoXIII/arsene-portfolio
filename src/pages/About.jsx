@@ -2,34 +2,38 @@ function About() {
     return (
         <section className="container section page-section about-page">
             <p className="eyebrow">About</p>
-            <h1 className="page-title">A technical profile with creative instincts.</h1>
+            <h1 className="page-title">Building with both rigor and intent.</h1>
 
             <p className="page-text">
-                I am a Computer Science student interested in software development,
-                artificial intelligence, theory, and interactive applications. I enjoy
-                building projects that combine structure, experimentation, and practical value.
+                I am a Master’s graduate in Computer Science with a background spanning
+                software development, artificial intelligence, theoretical computer science,
+                and optimization. My work focuses on building systems that are both technically
+                sound and meaningful in practice.
             </p>
 
             <p className="page-text">
-                Beyond technical work, I am also drawn to music, reading, and worlds with
-                atmosphere and meaning. I want this portfolio to reflect both the engineer
-                and the imaginative side behind my projects.
+                I approach projects by balancing theory and application: understanding the
+                underlying concepts, then translating them into concrete solutions. Whether it
+                is a distributed system, a machine learning model, or an interactive experience,
+                I aim to build things that hold up beyond the initial idea.
             </p>
 
             <div className="about-columns">
                 <div className="card about-card">
-                    <h3>What drives me</h3>
+                    <h3>How I work</h3>
                     <p>
-                        Curiosity, experimentation, and the desire to create technical work
-                        with identity rather than purely functional output.
+                        I break problems down, explore different approaches, and iterate until
+                        the solution is both clear and reliable. I value structure, but I am
+                        comfortable adapting when constraints change.
                     </p>
                 </div>
 
                 <div className="card about-card">
-                    <h3>What I enjoy</h3>
+                    <h3>What I’m interested in</h3>
                     <p>
-                        Software, AI, music, reading, atmosphere-rich worlds, and projects
-                        that connect structure with imagination.
+                        Software systems, artificial intelligence, and projects that connect
+                        technical depth with real-world use. I am particularly interested in
+                        how ideas move from theory to implementation.
                     </p>
                 </div>
             </div>

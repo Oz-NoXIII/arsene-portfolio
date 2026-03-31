@@ -5,11 +5,10 @@ function Portfolio() {
     return (
         <section className="container section page-section">
             <p className="eyebrow">Portfolio</p>
-            <h1 className="page-title">Selected work</h1>
+            <h1 className="page-title">Selected works</h1>
 
             <p className="page-text projects-intro">
-                A collection of projects across software, AI, distributed systems,
-                formal reasoning, and interactive experimentation.
+                A selection of my projects.
             </p>
 
             <div className="cards-grid">

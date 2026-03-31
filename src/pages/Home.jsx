@@ -12,16 +12,14 @@ function Home() {
         <>
             <section className="hero hero-split container section">
                 <div className="hero-copy">
-                    <p className="eyebrow"> Software • AI • Theoretical CS </p>
+                    <p className="eyebrow"> From theory to systems to real-world use </p>
                     <h1 className="hero-title">
                         Technical when it matters.<br />
                         Practical when it counts.
                     </h1>
 
                     <p className="hero-text">
-                        Computer Science student exploring software development, artificial
-                        intelligence, theory, music, reading, and interactive experiences.
-                        I like projects where structure, curiosity, and personality meet.
+                        Master’s graduate in Computer Science, interested in building software and AI systems that go from theory to real-world use.
                     </p>
 
                     <div className="hero-actions">
@@ -43,17 +41,9 @@ function Home() {
                     </div>
                 </div>
 
-                <div className="hero-visual">
+                <div className="hero-visual" aria-hidden="true">
                     <div className="hero-orb" />
                     <div className="hero-lines" />
-                    <div className="hero-panel">
-                        <p className="hero-panel-label">Atmosphere</p>
-                        <h2 className="hero-panel-title">Poetic. Technical. Personal.</h2>
-                        <p className="hero-panel-text">
-                            A portfolio designed as a calm, cinematic space where projects,
-                            ideas, music, and imagination coexist.
-                        </p>
-                    </div>
                 </div>
             </section>
 
@@ -75,9 +65,9 @@ function Home() {
 
             <section className="container section">
                 <SectionIntro
-                    eyebrow="Selected work"
-                    title="Portfolio"
-                    description="A selection of technical and research-oriented projects across AI, distributed systems, and formal reasoning."
+                    eyebrow="Portfolio"
+                    title="Selected works"
+                    description="A selection of my projects."
                 />
 
                 <div className="cards-grid">

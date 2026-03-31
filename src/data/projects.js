@@ -1,31 +1,77 @@
 export const projects = [
     {
         slug: "angel-portfolio-game",
-        title: "Metanoia",
+        title: "Metanoia: The Interactive Portfolio",
         image: "/images/projects/angel-portfolio-game.jpg",
         shortDescription:
             "An interactive portfolio designed as a game experience inspired by my academic journey.",
         fullDescription: [
-            "Angel Portfolio Game is an experimental portfolio project designed as a small interactive experience. Instead of navigating a traditional portfolio, the visitor progresses through levels inspired by my academic journey.",
-            "The current work focuses on movement, camera behavior, progression structure, and how portfolio content can be integrated naturally into the world."
+            "Metanoia is an experimental portfolio built as an interactive experience. ",
+            "Rather than navigating a traditional site, the visitor discovers projects and ideas through levels inspired by my academic journey. ",
+            "The project explores game-like navigation, interaction design, and real-time rendering to transform a portfolio into an immersive experience. ",
+            "Each level introduces different mechanics, encouraging exploration instead of linear browsing. ",
+            "Currently in development."
         ],
-        tags: ["Interactive", "Web", "Game", "In development"],
-        status: "In development",
+        tags: ["Interactive", "Creative Coding", "Web-based Game"],
+        skills: [
+            "Three.js",
+            "JavaScript",
+            "Interaction Design",
+            "Real-time Rendering",
+            "UX Thinking"
+        ],
+        status: "Ongoing",
         featured: true
     },
+
+    {
+        slug: "xpath-query-containment",
+        title: "XPath Query Containment",
+        image: "/images/projects/xpath-query-containment.jpg",
+        shortDescription:
+            "Master’s thesis on formal reasoning and implementation of XPath query containment.",
+        fullDescription: [
+            "Master’s thesis focused on XPath query containment, combining database theory with implementation-oriented exploration.",
+            "The work investigates whether one XPath query is guaranteed to be contained within another, based on formal models.",
+            "It involves studying theoretical results from the literature and exploring practical approaches for restricted subsets of XPath.",
+            "A key objective is also to make the subject more accessible, by simplifying and structuring the material for bachelor-level students.",
+            "The project bridges formal reasoning, implementation, and pedagogical clarity."
+        ],
+        tags: ["Master’s Thesis", "Databases", "Theory", "Research"],
+        skills: [
+            "Formal Reasoning",
+            "Database Theory",
+            "Algorithmic Thinking",
+            "Abstraction",
+            "Technical Communication"
+        ],
+        status: "Ongoing"
+    },
+
     {
         slug: "apache-ozone-ha-poc",
         title: "Apache Ozone HA POC",
         image: "/images/projects/apache-ozone-ha-poc.jpg",
         shortDescription:
-            "Distributed storage cluster proof of concept focused on configuration, validation, and presentation.",
+            "Proof of concept for a distributed Apache Ozone cluster with high availability.",
         fullDescription: [
-            "Proof of concept focused on the configuration, administration, and validation of an Apache Ozone high availability cluster.",
-            "The work included testing platform features, documenting results, and developing a Python Shiny interface for presentation purposes."
+            "Proof of concept for deploying and validating a high-availability Apache Ozone cluster in a distributed environment.",
+            "The work focused on cluster configuration, replication strategies, and failover behavior to ensure system reliability.",
+            "It included testing, validation of features, and documentation of the setup.",
+            "A Python Shiny interface was developed to present the system and make it accessible for demonstration purposes."
         ],
-        tags: ["Distributed systems", "Apache Ozone", "Infrastructure"],
+        tags: ["Distributed Systems", "Apache Ozone", "Infrastructure", "High Availability"],
+        skills: [
+            "Distributed Systems",
+            "Linux",
+            "Cluster Configuration",
+            "Fault Tolerance",
+            "System Validation",
+            "Technical Documentation"
+        ],
         status: "Completed"
     },
+
     {
         slug: "fire-detection-classification",
         title: "Fire Detection Classification",
@@ -33,36 +79,179 @@ export const projects = [
         shortDescription:
             "Deep learning project for fire image classification with semantic evaluation and explainability.",
         fullDescription: [
-            "Deep learning project focused on fire image classification using PyTorch models and explainability methods.",
-            "The work included data preparation, model development, evaluation, deployment, and experiments with semantic losses and metrics."
+            "Deep learning project focused on fire image classification using convolutional neural networks.",
+            "The work included data preparation, model design, training, and evaluation using PyTorch Lightning.",
+            "A custom Earth Mover’s Distance loss was implemented to better capture semantic relationships between classes.",
+            "The project also explored explainability methods to better understand model predictions."
         ],
-        tags: ["PyTorch", "Deep Learning", "XAI"],
+        tags: [ "PyTorch", "Computer Vision", "Real Use Case"],
+        skills: [
+            "PyTorch",
+            "PyTorch Lightning",
+            "Computer Vision",
+            "Model Training",
+            "Evaluation Metrics",
+            "Explainability (XAI)"
+        ],
         status: "Completed"
     },
+
     {
         slug: "dnn-compression-explainability",
         title: "DNN Compression & Explainability",
         image: "/images/projects/dnn-compression-explainability.jpg",
         shortDescription:
-            "Interactive framework for exploring compression and explainability in deep neural networks.",
+            "Interactive framework to explore model compression and explainability in deep learning.",
         fullDescription: [
-            "Interactive framework designed to explore the compression and explainability of deep neural networks.",
-            "The project used a custom MVC-style architecture with an integrated API and aimed at practical experimentation."
+            "Interactive framework designed to explore compression and explainability techniques for deep neural networks.",
+            "The system combines a Flask API with a local interface to experiment with pruning, distillation, and quantization.",
+            "Explainability tools are integrated to visualize and better understand model behavior.",
+            "The project is structured around a custom MVC architecture to support modular experimentation."
         ],
-        tags: ["AI", "Framework", "Explainability"],
+        tags: ["Deep Learning", "Model Compression", "XAI", "Framework"],
+        skills: [
+            "PyTorch",
+            "PyTorch Lightning",
+            "Computer Vision",
+            "Model Training",
+            "Evaluation Metrics",
+            "Explainability (XAI)"
+        ],
         status: "Completed"
     },
     {
-        slug: "xpath-query-containment",
-        title: "XPath Query Containment",
-        image: "/images/projects/xpath-query-containment.jpg",
+        slug: "expression-parser",
+        title: "Expression Parser For A Calculator",
+        image: "/images/projects/expression-parser.jpg",
         shortDescription:
-            "Master’s thesis project focused on formal reasoning and implementation around XPath query containment.",
+            "Scientific Calculator's parser supporting prefix, infix, and postfix expressions with structured AST representation.",
         fullDescription: [
-            "Master’s thesis project focused on formal reasoning and implementation around XPath query containment.",
-            "It combines theoretical foundations from database theory with implementation-oriented exploration."
+            "Implementation of an expression parser for a scientific calculator supporting prefix, infix, and postfix notation.",
+            "The project focuses on parsing strategies, abstract syntax tree construction, and conversion between representations.",
+            "It handles flexible input formats and explores operator precedence and normalization of expressions.",
+            "Designed with extensibility and clean structure in mind."
         ],
-        tags: ["Databases", "Theory", "Research"],
-        status: "Ongoing"
+        tags: ["Parsing", "Algorithms", "Software Design"],
+        skills: [
+            "Python",
+            "Parsing",
+            "AST Design",
+            "Algorithms",
+            "Software Architecture"
+        ],
+        status: "Completed"
+    },
+    {
+        slug: "vanheede-optimization-platform",
+        title: "Transportation Optimization Website",
+        image: "/images/projects/vanheede.jpg",
+        shortDescription:
+            "End-to-end software project to support optimization of waste treatment processes.",
+        fullDescription: [
+            "End-to-end software development project carried out in collaboration with Vanheede, focused on optimizing waste treatment processes.",
+            "The project involved gathering requirements through direct communication with the client, translating needs into technical specifications, and iterating based on feedback.",
+            "It included modeling, development, testing, and deployment of a web-based solution.",
+            "A strong emphasis was placed on adaptability, continuous communication, and aligning technical decisions with evolving business needs."
+        ],
+        tags: ["Software Engineering", "Client Project", "Optimization"],
+        skills: [
+            "Full-stack Development",
+            "Requirement Analysis",
+            "System Modeling",
+            "Testing & Validation",
+            "Deployment",
+            "Client Communication",
+            "Collaboration inter-team"
+        ],
+        status: "Completed"
+    },
+    {
+        slug: "bank-transfer-application",
+        title: "Bank Transfer Application",
+        image: "/images/projects/bank-transfer.jpg",
+        shortDescription:
+            "Software engineering project focused on system design and UML modeling.",
+        fullDescription: [
+            "Software engineering project involving the design of a bank transfer application.",
+            "The work includes UML modeling, system architecture, and prototyping.",
+            "The focus was on applying software engineering principles in a structured and realistic scenario.",
+            "Version control and collaborative development practices were also used."
+        ],
+        tags: ["Software Engineering", "UML", "Java", "System Design"],
+        skills: [
+            "Java",
+            "UML",
+            "System Design",
+            "Version Control",
+            "Software Engineering"
+        ],
+        status: "Completed"
+    },
+    {
+        slug: "transformer-text-classification",
+        title: "Transformer Text Classification",
+        image: "/images/projects/transformer.jpg",
+        shortDescription:
+            "Text classification using transformer-based models.",
+        fullDescription: [
+            "Project focused on text classification using transformer architectures such as DistilBERT.",
+            "Includes data preprocessing, fine-tuning, and evaluation of model performance.",
+            "Explores practical usage of pretrained models for NLP tasks."
+        ],
+        tags: ["NLP", "Transformers", "Semantics"],
+        skills: [
+            "Transformers",
+            "PyTorch",
+            "NLP",
+            "Model Fine-tuning",
+            "Data Preprocessing",
+            "Evaluation"
+        ],
+        status: "Completed"
+    },
+    {
+        slug: "dumbo-compiler",
+        title: "Dumbo Language Compiler",
+        image: "/images/projects/dumbo-compiler.jpg",
+        shortDescription:
+            "Compiler implementation for a custom programming language.",
+        fullDescription: [
+            "Implementation of a compiler for a custom programming language called Dumbo.",
+            "The project covers the full compilation pipeline, including lexical analysis, parsing, semantic analysis, and code generation.",
+            "It focuses on language design, formal grammars, and transformation of high-level constructs into executable representations.",
+            "The work highlights core concepts of compiler construction and low-level program representation."
+        ],
+        tags: ["Compiler", "Languages", "Parsing", "Theory"],
+        skills: [
+            "Compiler Design",
+            "Lexical Analysis",
+            "Parsing",
+            "Formal Grammars",
+            "Semantic Analysis",
+            "Code Generation"
+        ],
+        status: "Completed"
+    },
+    {
+        slug: "windowing-application",
+        title: "Windowing Application",
+        image: "/images/projects/windowing.jpg",
+        shortDescription:
+            "Implementation of geometric data structures for efficient windowing queries.",
+        fullDescription: [
+            "Implementation of a windowing application based on computational geometry algorithms.",
+            "The project is inspired by the windowing problem described in 'Computational Geometry – Algorithms and Applications'.",
+            "It focuses on efficient geometric data structures to perform range queries over spatial data.",
+            "The work highlights algorithm design, complexity considerations, and practical implementation of theoretical concepts."
+        ],
+        tags: ["Computational Geometry", "Algorithms", "Data Structures"],
+        skills: [
+            "Computational Geometry",
+            "Geometric Data Structures",
+            "Algorithm Design",
+            "Complexity Analysis",
+            "Spatial Queries"
+        ],
+        status: "Completed"
     }
 ];
