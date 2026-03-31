@@ -2,10 +2,7 @@ function Contact() {
     return (
         <section className="container section page-section contact-page">
             <p className="eyebrow">Contact</p>
-            <h1 className="page-title">Contact</h1>
-            <p className="page-text">
-                A final point of clarity. If my work speaks to you, feel free to reach out.
-            </p>
+            <h1 className="page-title">What comes next starts here.</h1>
 
             <div className="card contact-card">
                 <p>
