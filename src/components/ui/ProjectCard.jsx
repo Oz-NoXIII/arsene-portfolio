@@ -22,6 +22,8 @@ function ProjectCard({ project }) {
                     alt={project.title}
                     className="project-image"
                     loading="lazy"
+                    width="300"
+                    height="150"
                 />
             </div>
 
