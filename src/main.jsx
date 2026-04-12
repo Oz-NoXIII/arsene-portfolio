@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { BrowserRouter } from "react-router-dom";
+import { HashRouter } from "react-router-dom";
 import App from "./App";
 import { AudioProvider } from "./components/audio/AudioProvider";
 import { TransitionProvider } from "./components/layout/TransitionProvider";
@@ -14,12 +14,12 @@ import "./styles/responsive.css";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
     <React.StrictMode>
-        <BrowserRouter>
+        <HashRouter>
             <TransitionProvider>
                 <AudioProvider>
                     <App />
                 </AudioProvider>
             </TransitionProvider>
-        </BrowserRouter>
+        </HashRouter>
     </React.StrictMode>
 );
