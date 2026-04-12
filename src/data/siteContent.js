@@ -11,13 +11,18 @@ export const siteContent = {
         },
         {
             label: "Interactive Portfolio",
-            description: "Metanoia",
+            description: "Metanoia (in development)",
             to: "/interactive-portfolio"
         },
         {
             label: "About",
             description: "Profile, interests, and direction",
             to: "/about"
+        },
+        {
+            label: "Contact",
+            description: "Email and social media",
+            to: "/contact"
         }
     ]
 };

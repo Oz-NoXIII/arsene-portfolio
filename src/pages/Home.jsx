@@ -21,24 +21,6 @@ function Home() {
                     <p className="hero-text">
                         Master’s graduate in Computer Science, interested in building software and AI systems that go from theory to real-world use.
                     </p>
-
-                    <div className="hero-actions">
-                        <button
-                            type="button"
-                            className="button button-primary"
-                            onClick={() => delayedNavigate("/portfolio")}
-                        >
-                            View portfolio
-                        </button>
-
-                        <button
-                            type="button"
-                            className="button button-secondary"
-                            onClick={() => delayedNavigate("/about")}
-                        >
-                            About me
-                        </button>
-                    </div>
                 </div>
 
                 <div className="hero-visual" aria-hidden="true">
@@ -59,20 +41,6 @@ function Home() {
                             <span className="quick-link-label">{item.label}</span>
                             <span className="quick-link-description">{item.description}</span>
                         </button>
-                    ))}
-                </div>
-            </section>
-
-            <section className="container section">
-                <SectionIntro
-                    eyebrow="Portfolio"
-                    title="Selected works"
-                    description="A selection of my projects."
-                />
-
-                <div className="cards-grid">
-                    {projects.map((project) => (
-                        <ProjectCard key={project.slug} project={project} />
                     ))}
                 </div>
             </section>

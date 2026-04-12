@@ -5,17 +5,20 @@ function About() {
             <h1 className="page-title">Building with both rigor and intent.</h1>
 
             <p className="page-text">
-                I am a Master’s graduate in Computer Science with a background spanning
-                software development, artificial intelligence, theoretical computer science,
-                and optimization. My work focuses on building systems that are both technically
-                sound and meaningful in practice.
+                I am a Master’s graduate in Computer Science with a background spanning software development,
+                artificial intelligence, theoretical computer science, and optimization. Alongside my technical
+                training, I explored topics in management, entrepreneurship, and the societal impact of technology.
             </p>
 
             <p className="page-text">
-                I approach projects by balancing theory and application: understanding the
-                underlying concepts, then translating them into concrete solutions. Whether it
-                is a distributed system, a machine learning model, or an interactive experience,
-                I aim to build things that hold up beyond the initial idea.
+                I approach projects with a dual lens: technical depth and contextual awareness.
+                Beyond building systems, I consider how they are used, how they create value,
+                and what constraints shape them.
+            </p>
+
+            <p className="page-text">
+                This perspective allows me to design solutions that are not only robust,
+                but also relevant and aligned with real-world needs.
             </p>
 
             <div className="about-columns">
@@ -31,9 +34,7 @@ function About() {
                 <div className="card about-card">
                     <h3>What I’m interested in</h3>
                     <p>
-                        Software systems, artificial intelligence, and projects that connect
-                        technical depth with real-world use. I am particularly interested in
-                        how ideas move from theory to implementation.
+                        I have a deep interest in immersive and not to predictable books, series, and games in romance or isekai genres. Beside that, I like working on ideas that piqued my curiosity.
                     </p>
                 </div>
             </div>
