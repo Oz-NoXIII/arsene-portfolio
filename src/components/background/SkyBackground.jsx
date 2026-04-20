@@ -1,7 +1,8 @@
 import {useEffect, useMemo, useRef, useState} from "react";
 import {useLocation} from "react-router-dom";
-import {usePageTransition} from "../layout/TransitionProvider";
+import {usePageTransition} from "../layout/usePageTransition";
 import {getRouteDirection, getSkyMode} from "../../data/skyThemes";
+import { getTransitionDuration } from "../../data/transitionConfig";
 
 function lerp(start, end, t) {
     return start + (end - start) * t;
@@ -168,13 +169,9 @@ function phaseToAngle(phase) {
     return phase * 90 - 140;
 }
 
-function normalizePhase(value, totalPhases) {
-    return ((value % totalPhases) + totalPhases) % totalPhases;
-}
-
-function getContinuousTargetAngle(currentAngle, targetPhase, directionSteps) {
+function getContinuousTargetAngle(currentAngle, targetPhaseValue, directionSteps) {
     // Start from the wrapped target angle
-    let candidate = phaseToAngle(targetPhase);
+    let candidate = phaseToAngle(targetPhaseValue);
 
     // Move the candidate by full turns until it matches the intended direction
     if (directionSteps > 0) {
@@ -193,26 +190,34 @@ function getContinuousTargetAngle(currentAngle, targetPhase, directionSteps) {
 }
 
 function SkyBackground() {
-    const lastNonContactPathRef = useRef("/");
     const location = useLocation();
-    const { isTransitioning, targetPath } = usePageTransition();
+    const { isTransitioning, targetPath, transitionFromPath, lastPathBeforeContact } = usePageTransition();
 
     const currentPath = location.pathname;
+    const [lastNonContactPath, setLastNonContactPath] = useState(
+        currentPath === "/contact" ? "/" : currentPath
+    );
     const effectivePath =
         isTransitioning && targetPath ? targetPath : currentPath;
 
     const skyPath =
         effectivePath === "/contact"
-            ? lastNonContactPathRef.current
+            ? lastNonContactPath
             : effectivePath;
 
     const animationRef = useRef(null);
 
     useEffect(() => {
-        if (location.pathname !== "/contact") {
-            lastNonContactPathRef.current = location.pathname;
+        if (currentPath === "/contact" || currentPath === lastNonContactPath) {
+            return;
         }
-    }, [location.pathname]);
+
+        const frame = requestAnimationFrame(() => {
+            setLastNonContactPath(currentPath);
+        });
+
+        return () => cancelAnimationFrame(frame);
+    }, [currentPath, lastNonContactPath]);
 
     const initialMode = getSkyMode(skyPath);
     const [phaseValue, setPhaseValue] = useState(
@@ -224,15 +229,34 @@ function SkyBackground() {
     const [visualAngle, setVisualAngle] = useState(
         (initialMode.type === "cycle" ? initialMode.phase : 0) * 90 - 140
     );
+    const phaseValueRef = useRef(phaseValue);
+    const convergenceMixRef = useRef(convergenceMix);
+    const visualAngleRef = useRef(visualAngle);
+
+    useEffect(() => {
+        phaseValueRef.current = phaseValue;
+    }, [phaseValue]);
+
+    useEffect(() => {
+        convergenceMixRef.current = convergenceMix;
+    }, [convergenceMix]);
+
+    useEffect(() => {
+        visualAngleRef.current = visualAngle;
+    }, [visualAngle]);
 
     useEffect(() => {
         const targetMode = getSkyMode(skyPath);
-        const duration = 1000;
+        const duration = getTransitionDuration(
+            transitionFromPath,
+            targetPath,
+            lastPathBeforeContact
+        );
         const start = performance.now();
 
-        const startPhase = normalizePhase(phaseValue, phases.length);
-        const startConvergence = convergenceMix;
-        const startAngle = visualAngle;
+        const startPhase = phaseValueRef.current;
+        const startConvergence = convergenceMixRef.current;
+        const startAngle = visualAngleRef.current;
 
         cancelAnimationFrame(animationRef.current);
 
@@ -246,17 +270,15 @@ function SkyBackground() {
                     : 1 - Math.pow(-2 * progress + 2, 2) / 2;
 
             if (targetMode.type === "cycle") {
-                const fromSkyPath =
-                    currentPath === "/contact" ? lastNonContactPathRef.current : currentPath;
+                const fromSkyPath = currentPath === "/contact" ? lastNonContactPath : currentPath;
 
                 const directionDelta = getRouteDirection(fromSkyPath, skyPath);
 
-                const targetPhase = normalizePhase(startPhase + directionDelta, phases.length);
                 const targetPhaseValue = startPhase + directionDelta;
 
                 const targetAngle = getContinuousTargetAngle(
                     startAngle,
-                    targetPhase,
+                    targetPhaseValue,
                     directionDelta
                 );
 
@@ -271,23 +293,19 @@ function SkyBackground() {
                 animationRef.current = requestAnimationFrame(animate);
             } else {
                 if (targetMode.type === "cycle") {
-                    const fromSkyPath =
-                        currentPath === "/contact" ? lastNonContactPathRef.current : currentPath;
+                    const fromSkyPath = currentPath === "/contact" ? lastNonContactPath : currentPath;
 
                     const directionDelta = getRouteDirection(fromSkyPath, skyPath);
 
-                    const finalPhase = normalizePhase(
-                        startPhase + directionDelta,
-                        phases.length
-                    );
+                    const finalPhaseValue = startPhase + directionDelta;
 
                     const finalAngle = getContinuousTargetAngle(
                         startAngle,
-                        finalPhase,
+                        finalPhaseValue,
                         directionDelta
                     );
 
-                    setPhaseValue(finalPhase);
+                    setPhaseValue(finalPhaseValue);
                     setVisualAngle(finalAngle);
                     setConvergenceMix(0);
                 } else {
@@ -299,7 +317,7 @@ function SkyBackground() {
         animationRef.current = requestAnimationFrame(animate);
 
         return () => cancelAnimationFrame(animationRef.current);
-    }, [skyPath, currentPath]);
+    }, [skyPath, currentPath, lastNonContactPath, targetPath, transitionFromPath, lastPathBeforeContact]);
 
     const sky = useMemo(() => {
         const cycleSky = interpolatePhaseValue(phaseValue, visualAngle);

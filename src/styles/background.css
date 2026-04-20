@@ -494,7 +494,7 @@
     pointer-events: none;
     backdrop-filter: blur(22px) brightness(0.78) saturate(0.78);
     background: rgba(10, 12, 18, 0.14);
-    animation: contactBlurReveal 0.6s ease-out forwards;
+    animation: contactBlurReveal 0.42s ease-out forwards;
 }
 
 @keyframes contactBlurReveal {
@@ -504,10 +504,10 @@
         opacity: 1;
     }
 
-    70% {
-        backdrop-filter: blur(10px) brightness(0.88) saturate(0.88);
+    55% {
+        backdrop-filter: blur(12px) brightness(0.88) saturate(0.88);
         background: rgba(10, 12, 18, 0.08);
-        opacity: 1;
+        opacity: 0.6;
     }
 
     100% {
