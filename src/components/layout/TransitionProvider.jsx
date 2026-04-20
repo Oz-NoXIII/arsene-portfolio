@@ -1,10 +1,11 @@
-import { createContext, useContext, useMemo, useState } from "react";
-
-const TransitionContext = createContext(null);
+import { useMemo, useState } from "react";
+import { TransitionContext } from "./TransitionContext";
 
 export function TransitionProvider({ children }) {
     const [isTransitioning, setIsTransitioning] = useState(false);
     const [targetPath, setTargetPath] = useState(null);
+    const [transitionFromPath, setTransitionFromPath] = useState(null);
+    const [lastPathBeforeContact, setLastPathBeforeContact] = useState(null);
 
     const value = useMemo(
         () => ({
@@ -12,9 +13,13 @@ export function TransitionProvider({ children }) {
             setIsTransitioning,
             targetPath,
             setTargetPath,
+            transitionFromPath,
+            setTransitionFromPath,
+            lastPathBeforeContact,
+            setLastPathBeforeContact,
             isContactTransition: targetPath === "/contact"
         }),
-        [isTransitioning, targetPath]
+        [isTransitioning, targetPath, transitionFromPath, lastPathBeforeContact]
     );
 
     return (
@@ -22,14 +27,4 @@ export function TransitionProvider({ children }) {
             {children}
         </TransitionContext.Provider>
     );
-}
-
-export function usePageTransition() {
-    const context = useContext(TransitionContext);
-
-    if (!context) {
-        throw new Error("usePageTransition must be used inside TransitionProvider");
-    }
-
-    return context;
 }

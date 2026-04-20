@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import { useDelayedNavigate } from "./useDelayedNavigate";
-import { usePageTransition } from "./TransitionProvider";
+import { usePageTransition } from "./usePageTransition";
 
 function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
