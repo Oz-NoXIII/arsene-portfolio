@@ -1,42 +1,47 @@
-import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
-import { usePageTransition } from "./TransitionProvider";
+import { useEffect } from "react";
+import { usePageTransition } from "./usePageTransition";
+import { getTransitionDuration } from "../../data/transitionConfig";
 
 function PageTransition({ children }) {
-    const location = useLocation();
-    const { isTransitioning, setIsTransitioning, setTargetPath } = usePageTransition();
-    const [isVisible, setIsVisible] = useState(true);
-
-    useEffect(() => {
-        if (isTransitioning) {
-            setIsVisible(false);
-            return;
-        }
-
-        const revealDelay = location.pathname === "/contact" ? 180 : 60;
-
-        const timeout = window.setTimeout(() => {
-            setIsVisible(true);
-        }, 0);
-
-        return () => window.clearTimeout(timeout);
-    }, [isTransitioning, location.pathname]);
+    const {
+        isTransitioning,
+        targetPath,
+        transitionFromPath,
+        lastPathBeforeContact,
+        setIsTransitioning,
+        setTargetPath,
+        setTransitionFromPath
+    } = usePageTransition();
 
     useEffect(() => {
         if (!isTransitioning) {
             return;
         }
 
+        const duration = getTransitionDuration(
+            transitionFromPath,
+            targetPath,
+            lastPathBeforeContact
+        );
         const timeout = window.setTimeout(() => {
             setIsTransitioning(false);
             setTargetPath(null);
-        }, 120);
+            setTransitionFromPath(null);
+        }, duration);
 
         return () => window.clearTimeout(timeout);
-    }, [location.pathname]);
+    }, [
+        isTransitioning,
+        targetPath,
+        transitionFromPath,
+        lastPathBeforeContact,
+        setIsTransitioning,
+        setTargetPath,
+        setTransitionFromPath
+    ]);
 
     return (
-        <div className={`page-transition ${isVisible ? "visible" : ""}`}>
+        <div className={`page-transition ${isTransitioning ? "" : "visible"}`}>
             {children}
         </div>
     );
