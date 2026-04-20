@@ -1,11 +1,15 @@
-import { useAudioPlayer } from "./AudioProvider";
+import { useAudioPlayer } from "./useAudioPlayer";
 import { siteContent } from "../../data/siteContent";
 
 function MusicPlayer() {
     const { audioRef, isPlaying, toggleAudio, volume, setVolume } = useAudioPlayer();
+    const sliderVolume = Number.isFinite(volume) ? Math.min(Math.max(volume, 0), 1) : 0.25;
+    /** @type {import("react").CSSProperties & Record<"--volume", string>} */
+    const volumeStyle = { "--volume": sliderVolume.toString() };
 
     function handleVolumeChange(event) {
-        setVolume(Number(event.target.value));
+        const nextVolume = Number(event.target.value);
+        setVolume(Number.isFinite(nextVolume) ? Math.min(Math.max(nextVolume, 0), 1) : 0.25);
     }
 
     return (
@@ -41,10 +45,10 @@ function MusicPlayer() {
                         min="0"
                         max="1"
                         step="0.01"
-                        value={volume}
+                        value={sliderVolume}
                         onChange={handleVolumeChange}
                         aria-label="Volume"
-                        style={{ "--volume": volume }}
+                        style={volumeStyle}
                     />
                 </div>
             </div>

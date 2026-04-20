@@ -1,45 +1,49 @@
-import { createContext, useContext, useEffect, useMemo, useRef, useState } from "react";
-
-const AudioContextState = createContext(null);
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { AudioContextState } from "./AudioContext";
 
 const STORAGE_KEY_ENABLED = "portfolio-audio-enabled";
 const STORAGE_KEY_VOLUME = "portfolio-audio-volume";
 
+function getInitialIsPlaying() {
+    if (typeof window === "undefined") {
+        return true;
+    }
+
+    const savedEnabled = window.localStorage.getItem(STORAGE_KEY_ENABLED);
+    return savedEnabled === null ? true : savedEnabled === "true";
+}
+
+function getInitialVolume() {
+    if (typeof window === "undefined") {
+        return 0.25;
+    }
+
+    const savedVolume = window.localStorage.getItem(STORAGE_KEY_VOLUME);
+    const parsedVolume = Number(savedVolume);
+
+    if (savedVolume === null || Number.isNaN(parsedVolume)) {
+        return 0.25;
+    }
+
+    return parsedVolume;
+}
+
 export function AudioProvider({ children }) {
     const audioRef = useRef(null);
 
-    const [isPlaying, setIsPlaying] = useState(true);
-    const [volume, setVolume] = useState(0.25);
-    const [hasMounted, setHasMounted] = useState(false);
+    const [isPlaying, setIsPlaying] = useState(getInitialIsPlaying);
+    const [volume, setVolume] = useState(getInitialVolume);
     const [autoplayBlocked, setAutoplayBlocked] = useState(false);
 
     useEffect(() => {
-        const savedEnabled = window.localStorage.getItem(STORAGE_KEY_ENABLED);
-        const savedVolume = window.localStorage.getItem(STORAGE_KEY_VOLUME);
-
-        if (savedEnabled !== null) {
-            setIsPlaying(savedEnabled === "true");
-        }
-
-        if (savedVolume !== null) {
-            const parsed = Number(savedVolume);
-            if (!Number.isNaN(parsed)) {
-                setVolume(parsed);
-            }
-        }
-
-        setHasMounted(true);
-    }, []);
-
-    useEffect(() => {
-        if (!hasMounted || !audioRef.current) return;
+        if (!audioRef.current) return;
 
         audioRef.current.volume = volume;
         window.localStorage.setItem(STORAGE_KEY_VOLUME, String(volume));
-    }, [volume, hasMounted]);
+    }, [volume]);
 
     useEffect(() => {
-        if (!hasMounted || !audioRef.current) return;
+        if (!audioRef.current) return;
 
         if (isPlaying) {
             audioRef.current
@@ -56,7 +60,7 @@ export function AudioProvider({ children }) {
             audioRef.current.pause();
             window.localStorage.setItem(STORAGE_KEY_ENABLED, "false");
         }
-    }, [isPlaying, hasMounted]);
+    }, [isPlaying]);
 
     useEffect(() => {
         if (!autoplayBlocked || !audioRef.current) return;
@@ -81,22 +85,20 @@ export function AudioProvider({ children }) {
         };
     }, [autoplayBlocked]);
 
-    function toggleAudio() {
+    const toggleAudio = useCallback(() => {
         setIsPlaying((prev) => !prev);
-        if (autoplayBlocked) {
-            setAutoplayBlocked(false);
-        }
-    }
+        setAutoplayBlocked(false);
+    }, []);
 
-    function updateVolume(newVolume) {
+    const updateVolume = useCallback((newVolume) => {
         setVolume(newVolume);
 
         if (newVolume === 0) {
             setIsPlaying(false);
-        } else if (!isPlaying) {
+        } else {
             setIsPlaying(true);
         }
-    }
+    }, []);
 
     const value = useMemo(
         () => ({
@@ -106,7 +108,7 @@ export function AudioProvider({ children }) {
             volume,
             setVolume: updateVolume
         }),
-        [isPlaying, volume]
+        [isPlaying, toggleAudio, volume, updateVolume]
     );
 
     return (
@@ -114,14 +116,4 @@ export function AudioProvider({ children }) {
             {children}
         </AudioContextState.Provider>
     );
-}
-
-export function useAudioPlayer() {
-    const context = useContext(AudioContextState);
-
-    if (!context) {
-        throw new Error("useAudioPlayer must be used inside AudioProvider");
-    }
-
-    return context;
 }
