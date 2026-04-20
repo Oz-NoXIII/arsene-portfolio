@@ -1,5 +1,6 @@
 import { useAudioPlayer } from "./useAudioPlayer";
 import { siteContent } from "../../data/siteContent";
+import { audioAssets } from "../../assets/audio/index.js";
 
 function MusicPlayer() {
     const { audioRef, isPlaying, toggleAudio, volume, setVolume } = useAudioPlayer();
@@ -15,7 +16,7 @@ function MusicPlayer() {
     return (
         <>
             <audio ref={audioRef} loop preload="auto">
-                <source src="/audio/atmosphere.mp3" type="audio/mpeg" />
+                <source src={audioAssets.atmosphere} type="audio/mpeg" />
             </audio>
 
             <div className={`music-player ${isPlaying ? "playing" : ""}`}>

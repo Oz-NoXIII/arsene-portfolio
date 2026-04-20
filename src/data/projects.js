@@ -1,8 +1,10 @@
+import { projectImages } from '../assets/index.js';
+
 export const projects = [
     {
         slug: "angel-portfolio-game",
         title: "Metanoia: The Interactive Portfolio",
-        image: "/images/projects/angel-portfolio-game.webp",
+        image: projectImages.angelPortfolioGame,
         shortDescription:
             "An interactive portfolio designed as a game experience inspired by my academic journey.",
         fullDescription: [
@@ -27,7 +29,7 @@ export const projects = [
     {
         slug: "xpath-query-containment",
         title: "XPath Query Containment",
-        image: "/images/projects/xpath-query-containment.webp",
+        image: projectImages.xpathQueryContainment,
         shortDescription:
             "Master’s thesis on formal reasoning and implementation of XPath query containment.",
         fullDescription: [
@@ -51,7 +53,7 @@ export const projects = [
     {
         slug: "apache-ozone-ha-poc",
         title: "Apache Ozone HA POC",
-        image: "/images/projects/apache-ozone-ha-poc.webp",
+        image: projectImages.apacheOzoneHaPoc,
         shortDescription:
             "Proof of concept for a distributed Apache Ozone cluster with high availability.",
         fullDescription: [
@@ -75,7 +77,7 @@ export const projects = [
     {
         slug: "fire-detection-classification",
         title: "Fire Detection Classification",
-        image: "/images/projects/fire-detection-classification.webp",
+        image: projectImages.fireDetectionClassification,
         shortDescription:
             "Deep learning project for fire image classification with semantic evaluation and explainability.",
         fullDescription: [
@@ -99,7 +101,7 @@ export const projects = [
     {
         slug: "dnn-compression-explainability",
         title: "DNN Compression & Explainability",
-        image: "/images/projects/dnn-compression-explainability.webp",
+        image: projectImages.dnnCompressionExplainability,
         shortDescription:
             "Interactive framework to explore model compression and explainability in deep learning.",
         fullDescription: [
@@ -122,7 +124,7 @@ export const projects = [
     {
         slug: "expression-parser",
         title: "Expression Parser For A Calculator",
-        image: "/images/projects/expression-parser.webp",
+        image: projectImages.expressionParser,
         shortDescription:
             "Scientific Calculator's parser supporting prefix, infix, and postfix expressions with structured AST representation.",
         fullDescription: [
@@ -144,7 +146,7 @@ export const projects = [
     {
         slug: "vanheede-optimization-platform",
         title: "Transportation Optimization Website",
-        image: "/images/projects/vanheede.webp",
+        image: projectImages.vanheede,
         shortDescription:
             "End-to-end software project to support optimization of waste treatment processes.",
         fullDescription: [
@@ -168,7 +170,7 @@ export const projects = [
     {
         slug: "bank-transfer-application",
         title: "Bank Transfer Application",
-        image: "/images/projects/bank-transfer.webp",
+        image: projectImages.bankTransfer,
         shortDescription:
             "Software engineering project focused on system design and UML modeling.",
         fullDescription: [
@@ -190,7 +192,7 @@ export const projects = [
     {
         slug: "transformer-text-classification",
         title: "Transformer Text Classification",
-        image: "/images/projects/transformer.webp",
+        image: projectImages.transformer,
         shortDescription:
             "Text classification using transformer-based models.",
         fullDescription: [
@@ -212,7 +214,7 @@ export const projects = [
     {
         slug: "dumbo-compiler",
         title: "Dumbo Language Compiler",
-        image: "/images/projects/dumbo-compiler.webp",
+        image: projectImages.dumboCompiler,
         shortDescription:
             "Compiler implementation for a custom programming language.",
         fullDescription: [
@@ -235,7 +237,7 @@ export const projects = [
     {
         slug: "windowing-application",
         title: "Windowing Application",
-        image: "/images/projects/windowing.webp",
+        image: projectImages.windowing,
         shortDescription:
             "Implementation of geometric data structures for efficient windowing queries.",
         fullDescription: [

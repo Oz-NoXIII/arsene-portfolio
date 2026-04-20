@@ -1,16 +1,104 @@
-# React + Vite
+# Arsène's Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A personal portfolio website built with React and Vite showcasing technical projects and work in computer science.
 
-Currently, two official plugins are available:
+## Description
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+This is a portfolio website featuring a collection of projects spanning several domains:
+- Systems and compilers
+- Artificial intelligence and deep learning
+- Database theory and formal reasoning
+- Distributed systems and infrastructure
+- Full-stack web development
+- Computational geometry
 
-## React Compiler
+The site includes a standard portfolio with project cards and detailed project pages. An interactive game-based portfolio experience called **Metanoia** is currently in development and will serve as an alternative way to explore projects through a game-like interface.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Features
 
-## Expanding the ESLint configuration
+- Dynamic background with sky themes
+- Page transitions with context-aware animations
+- Music player with ambient soundtrack
+- Smooth navigation between pages
+- Project detail pages with full descriptions
+- Responsive design for desktop, tablet, and mobile
+- Custom cursor effects
+- Accessible component structure
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Technologies
+
+- React 19
+- Vite
+- React Router v7
+- CSS3
+- ESLint
+
+## Projects
+
+The portfolio includes the following projects:
+
+- Metanoia: The Interactive Portfolio (Game-based portfolio, in development)
+- XPath Query Containment (Master's thesis on database query theory)
+- Apache Ozone HA POC (High-availability distributed systems)
+- Fire Detection Classification (Deep learning with PyTorch)
+- DNN Compression & Explainability (Model compression framework)
+- Expression Parser (Parser for scientific calculator)
+- Transportation Optimization Website (Full-stack client project)
+- Bank Transfer Application (Software engineering project)
+- Transformer Text Classification (NLP with transformers)
+- Dumbo Language Compiler (Compiler construction)
+- Windowing Application (Computational geometry)
+
+## Getting Started
+
+### Prerequisites
+- Node.js 16+ and npm
+
+### Installation
+
+```bash
+npm install
+```
+
+### Development
+
+```bash
+npm run dev
+```
+
+The site will be available at `http://localhost:5173`
+
+### Build
+
+```bash
+npm run build
+```
+
+### Linting
+
+```bash
+npm run lint
+```
+
+## Project Structure
+
+```
+src/
+├── pages/              # Page components
+├── components/         # Reusable components
+│   ├── layout/        # Navigation, page layout, transitions
+│   ├── background/    # Background effects and themes
+│   ├── audio/         # Music player
+│   └── ui/            # UI components (cards, typography, etc.)
+├── data/              # Project and site content
+├── assets/            # Images, textures, audio
+└── styles/            # CSS stylesheets
+```
+
+## Planned Features
+
+- Metanoia: Interactive game-based portfolio experience with Three.js
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
