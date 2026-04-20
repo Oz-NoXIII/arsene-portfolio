@@ -1,8 +1,4 @@
-import { Link } from "react-router-dom";
-import { projects } from "../data/projects";
 import { siteContent } from "../data/siteContent";
-import ProjectCard from "../components/ui/ProjectCard";
-import SectionIntro from "../components/ui/SectionIntro";
 import { useDelayedNavigate } from "../components/layout/useDelayedNavigate";
 
 function Home() {
